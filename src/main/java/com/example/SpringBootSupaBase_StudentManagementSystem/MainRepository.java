@@ -1,4 +1,9 @@
 package com.example.SpringBootSupaBase_StudentManagementSystem;
 
-public class MainRepository {
+import org.springframework.data.jpa.repository.JpaRepository;
+import org.springframework.stereotype.Repository;
+
+@Repository
+public interface MainRepository extends JpaRepository<StudentModel, Integer>{
+
 }
