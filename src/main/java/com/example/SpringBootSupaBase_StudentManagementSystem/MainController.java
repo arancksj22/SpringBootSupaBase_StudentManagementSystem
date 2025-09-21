@@ -1,11 +1,10 @@
 package com.example.SpringBootSupaBase_StudentManagementSystem;
 
-import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
-@Controller
+@RestController
 @RequestMapping("/api/StudentSystem")
 public class MainController {
     MainService service;
@@ -25,12 +24,12 @@ public class MainController {
     }
 
     @PostMapping
-    public StudentModel createStudent(@RequestParam StudentModel student){
+    public StudentModel createStudent(@RequestBody StudentModel student){
         return service.createStudent(student);
     }
 
     @PutMapping
-    public StudentModel updateStudent(@RequestParam StudentModel student){
+    public StudentModel updateStudent(@RequestBody StudentModel student){
         return service.updateStudent(student);
     }
 
