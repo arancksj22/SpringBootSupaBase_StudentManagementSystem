@@ -22,5 +22,26 @@ public class MainService {
                 .orElseThrow(() -> new RuntimeException("No Student with Id"));
     }
 
+    public StudentModel createStudent(StudentModel student){
+        return repo.save(student);
+    }
+
+    public void deleteStudent(int id){
+        repo.deleteById(id);
+    }
+
+    public StudentModel updateStudent(StudentModel newStudent){
+        StudentModel existing = repo.findById(newStudent.getId())
+                                .orElseThrow(() -> new RuntimeException("Does not exist"));
+
+        existing.setId(newStudent.getId());
+        existing.setDivision(newStudent.getDivision());
+        existing.setMarks(newStudent.getMarks());
+        existing.setRoll(newStudent.getRoll());
+        existing.setSapId(newStudent.getSapId());
+
+        return repo.save(existing);
+    }
+
 
 }
