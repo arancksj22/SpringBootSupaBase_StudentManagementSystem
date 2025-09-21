@@ -39,6 +39,7 @@ public class MainService {
         existing.setMarks(newStudent.getMarks());
         existing.setRoll(newStudent.getRoll());
         existing.setSapId(newStudent.getSapId());
+        existing.setName(newStudent.getName());
 
         return repo.save(existing);
     }
