@@ -14,12 +14,13 @@ public class StudentModel {
     private int marks;
     private long sapId;
 
-    public StudentModel(int id, int roll, char division, int marks, long sapId) {
+    public StudentModel(int id, int roll, char division, int marks, long sapId, String name) {
         this.id = id;
         this.roll = roll;
         this.division = division;
         this.marks = marks;
         this.sapId = sapId;
+        this.name = name;it s
     }
 
     public int getId() {
