@@ -1,9 +1,7 @@
 package com.example.SpringBootSupaBase_StudentManagementSystem;
 
 import org.springframework.stereotype.Controller;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
@@ -23,6 +21,21 @@ public class MainController {
 
     @GetMapping("/{id}")
     public StudentModel getStudentById(@PathVariable int id){
-        return service.findById();
+        return service.findById(id);
+    }
+
+    @PostMapping
+    public StudentModel createStudent(@RequestParam StudentModel student){
+        return service.createStudent(student);
+    }
+
+    @PutMapping
+    public StudentModel updateStudent(@RequestParam StudentModel student){
+        return service.updateStudent(student);
+    }
+
+    @DeleteMapping("/{id}")
+    public void deleteStudent(@PathVariable int id){
+        service.deleteStudent(id);
     }
 }
